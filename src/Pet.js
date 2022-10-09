@@ -1,4 +1,4 @@
-const Pet = ({ name, animal, breed, location, id, key, images }) => {
+const Pet = ({ name, animal, breed, location, id, images }) => {
   let hero = 'http://pet-images.dev-apis.com/pets/none.jpg';
   if (images.length) {
     hero = images[0];
