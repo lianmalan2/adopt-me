@@ -2,12 +2,13 @@
   "name": "adopt-me",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "parcel src/index.html",
     "format": "prettier --write \"src/**/*.{js,jsx,html,css}\"",
     "format:check": "prettier --check \"src/**/*.{js,jsx,html,css}\"",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet"
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "build:prod": "npx parcel build .\\src\\index.html",
+    "serve:prod": "build:prod & npx serve dist"
   },
   "keywords": [],
   "author": "",
