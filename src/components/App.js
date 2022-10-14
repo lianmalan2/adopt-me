@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { StrictMode, useState } from 'react';
 import SearchParams from './SearchParams';
 import Details from './Details';
-import ThemeContext from '../ThemeContext';
+import ThemeContext from '../contexts/ThemeContext';
 
 const App = () => {
   const theme = useState('green');

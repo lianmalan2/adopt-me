@@ -2,7 +2,7 @@ import { Component, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import ErrorBoundary from './ErrorBoundary';
 import Carousel from './Carousel';
-import ThemeContext from '../ThemeContext';
+import ThemeContext from '../contexts/ThemeContext';
 
 class Details extends Component {
   state = { loading: true };
