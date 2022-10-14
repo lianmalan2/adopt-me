@@ -11,7 +11,7 @@ const SearchParams = () => {
   const [breed, setBreed] = useState('');
   const [pets, setPets] = useState([]);
   const [breeds, status] = useBreedList(animal); // eslint-disable-line no-unused-vars
-  const [theme] = useContext(ThemeContext);
+  const [theme, setTheme] = useContext(ThemeContext);
 
   useEffect(() => {
     requestPets();
@@ -86,6 +86,19 @@ const SearchParams = () => {
             onBlur={handleBreedChange}>
             <option />
             {breedOptions}
+          </select>
+        </label>
+        <label htmlFor="theme">
+          Theme
+          <select
+            value={theme}
+            onChange={(e) => setTheme(e.target.value)}
+            onBlur={(e) => setTheme(e.target.value)}>
+            <option value="green">Green</option>
+            <option value="peru">Peru</option>
+            <option value="darkblue">Dark Blue</option>
+            <option value="chartreuse">Chartreuse</option>
+            <option value="mediumorchid">Medium Orchid</option>
           </select>
         </label>
         <button style={{ backgroundColor: theme }}>Submit</button>
