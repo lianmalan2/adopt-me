@@ -8,7 +8,8 @@
     "format:check": "prettier --check \"src/**/*.{js,jsx,html,css}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "build:prod": "npx parcel build .\\src\\index.html",
-    "serve:prod": "build:prod & npx serve dist"
+    "serve:prod": "build:prod & npx serve dist",
+    "export": "next build && next export"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +26,7 @@
     "prettier": "^2.5.1"
   },
   "dependencies": {
+    "next": "^12.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.1"
