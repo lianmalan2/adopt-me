@@ -3,9 +3,10 @@ import { useParams } from 'react-router-dom';
 import ErrorBoundary from './ErrorBoundary';
 import Carousel from './Carousel';
 import ThemeContext from '../contexts/ThemeContext';
+import Modal from '../Modal';
 
 class Details extends Component {
-  state = { loading: true };
+  state = { loading: true, showModal: false };
 
   async componentDidMount() {
     const res = await fetch(
@@ -20,12 +21,16 @@ class Details extends Component {
     });
   }
 
+  toggleModal = () => {
+    this.setState({ showModal: !this.state.showModal });
+  };
+
   render() {
     if (this.state.loading) {
       return <h2>Loading...</h2>;
     }
 
-    const { animal, breed, city, state, description, name, images } =
+    const { animal, breed, city, state, description, name, images, showModal } =
       this.state;
 
     return (
@@ -43,10 +48,23 @@ class Details extends Component {
               </button>
             )}
           </ThemeContext.Consumer>
-          <button style={{ backgroundColor: this.props.theme }}>
+          <button
+            style={{ backgroundColor: this.props.theme }}
+            onClick={this.toggleModal}>
             Adopt (using hook) {name}
           </button>
           <p>{description}</p>
+          {showModal ? (
+            <Modal>
+              <div>
+                <h1>Would you like to adopt {name}?</h1>
+                <div className="buttons">
+                  <a href="https://bit.ly/pet-adopt">Yes</a>
+                  <button onClick={this.toggleModal}>No</button>
+                </div>
+              </div>
+            </Modal>
+          ) : null}
         </div>
       </div>
     );
